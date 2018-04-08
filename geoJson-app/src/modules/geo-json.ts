@@ -35,7 +35,7 @@ export class GeoParser {
     constructor() { }
 
     // private worker = new Worker('../modules/parser-worker.ts')
-    private minMag : any
+ 
     private getItemFromFeature({geometry,properties}) {
         return {
             latitude: geometry.coordinates[1],
@@ -48,7 +48,7 @@ export class GeoParser {
         }
     }
     private magnitudeToRadius(magnitude){
-        return 20 * (magnitude-this.minMag)
+        return 5 * (magnitude-2)
     }
     private formatDescription(properties){
         let date = new Date(properties.time)
@@ -63,15 +63,12 @@ export class GeoParser {
         return description;
     }
     toAmChart(data) {
-        console.log(JSON.stringify(data.features[0]))
+        
         let stack = []
-        this.minMag = 5
         data.features.forEach((feature)=>{
-            let mag = parseInt(feature.properties.mag)
-            if(mag < this.minMag) this.minMag = mag
             stack.push(this.getItemFromFeature(feature))
         })
-        console.log('minMag',this.minMag)
+        
         return stack
     }
 

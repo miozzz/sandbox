@@ -17,9 +17,9 @@ export const chartobj = {
     },
     areasSettings: {
       color: "rgba(70,70,70,1)",
-      outlineColor: "#282828",
-      rollOverOutlineColor: "#282828",
-      outlineThickness: 0.2
+      outlineColor: "rgb(70,70,70)",
+      rollOverOutlineColor: "rgb(70,70,70)",
+      outlineThickness: 0.1
     },
     imagesSettings:{
       color: "#e42a2abb",
