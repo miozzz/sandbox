@@ -13,3 +13,20 @@ Copy the contents of `dist/` folder and paste in the server's root directory.
 Open the `release/` directory to see some of the stable builds.
 
 ## What to Expect
+
+### Monochromatic Map of the Philippines
+![Preview without data](https://github.com/miozzz/sandbox/blob/master/geoJson-app/assets/ipadnodata.png)
+
+### Red Dots for Earthquakes
+* Size of dots changes with magnitude of earthquake.
+
+![Preview with data](https://github.com/miozzz/sandbox/blob/master/geoJson-app/assets/ipaddata.png)
+
+### Interactive
+* Click on the dots to view details.
+![Preview with details](https://github.com/miozzz/sandbox/blob/master/geoJson-app/assets/ipaddetails.png)
+
+### Adaptive
+* Layout changes with screen resolution.
+* Sample layout on iPhone.
+![Preview with details](https://github.com/miozzz/sandbox/blob/master/geoJson-app/assets/iphonedata.png)
