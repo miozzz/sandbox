@@ -1,0 +1,1 @@
+body{display:-ms-grid;display:grid;height:100%;width:100%;position:fixed;margin:0}div.infoBox{color:#181818;text-shadow:0 0 #fff}div.infoBox>*{margin:0 0 1mm}div.infoBox>label{display:block;font-size:3.25mm}div.infoBox>label>span:first-child{font-size:3mm}a[title="Interactive JavaScript maps"]{display:none!important}

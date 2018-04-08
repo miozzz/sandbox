@@ -17,9 +17,9 @@ import { GeoJson, GeoParser } from '../modules/geo-json';
 export class AppComponent implements OnInit {
   private AmCharts = window['AmCharts']
   private chart: any
-  private startdate : string
-  private enddate : string
-  
+  public startdate : string
+  public enddate : string
+
   constructor(private http: HttpClient, private geojson: GeoJson, private geoparser: GeoParser) {
     this.startdate = "2014-01-01" 
     this.enddate = "2014-02-01"
