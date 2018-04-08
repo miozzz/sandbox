@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   public enddate : string
 
   constructor(private http: HttpClient, private geojson: GeoJson, private geoparser: GeoParser) {
-    this.startdate = "2014-01-01" 
-    this.enddate = "2014-02-01"
+    this.startdate = "1991-06-01" 
+    this.enddate = "1991-06-30"
     
   }
 

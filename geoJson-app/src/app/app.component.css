@@ -11,6 +11,7 @@
     padding:2mm;
     display: grid;
     grid-template-columns: auto 52mm 50mm 8mm;
+    background:whitesmoke;
 }
 
 :host > form > h3{
@@ -24,6 +25,13 @@
 :host > form > div > *{
     vertical-align: middle;
     display: inline-block;
+}
+:host > form > div > input{
+    background:none;
+    border:none;
+}
+:host > form > div > input::-webkit-inner-spin-button {
+    opacity: 1
 }
 :host > form > button {
    padding:0;
