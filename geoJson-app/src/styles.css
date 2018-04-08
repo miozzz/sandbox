@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    display:grid;
+    height:100%;
+    width:100%;
+    position:fixed;
+    margin:0;
+    
+}
+
+div.infoBox{
+    color:#181818;
+    text-shadow: 0 0 white;
+}
+
+div.infoBox > *{
+    margin:0;
+    margin-bottom: 1mm;
+}
+div.infoBox > label{
+    display: block;
+    font-size: 3.25mm
+}
+div.infoBox > label > span:first-child{
+    font-size: 3mm;
+}
+
+a[title="Interactive JavaScript maps"]{
+    display:none !important;
+}
