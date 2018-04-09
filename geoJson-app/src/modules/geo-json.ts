@@ -4,10 +4,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 
 export class GeoJson {
+    //Main class that connects with USGS API.
+    constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient) {
-
-    }
     private generateUrl(start, end) {
         let coordinates = [13, 124]
         let radius = '900'
@@ -21,6 +20,7 @@ export class GeoJson {
             `&longitude=${coordinates[1]}&maxradiuskm=${radius}`
         return ret
     }
+
     getData(start, end) {
         let url = this.generateUrl(start, end)
         return this.http.get(url)
@@ -31,11 +31,12 @@ export class GeoJson {
 }
 
 export class GeoParser {
+    //Class for parsing GeoJson to other formats.
+    //Should be in a dedicated worker.
 
     constructor() { }
-
-    // private worker = new Worker('../modules/parser-worker.ts')
  
+    //Extracting basic properties of each feature that will fit amCharts format.
     private getItemFromFeature({geometry,properties}) {
         return {
             latitude: geometry.coordinates[1],
@@ -47,9 +48,13 @@ export class GeoParser {
             type: "circle"
         }
     }
+
+    //Arbitrary scaling of magnitude to emphasize magnitude difference in plot.
     private magnitudeToRadius(magnitude){
         return 5 * (magnitude-2)
     }
+
+    //Basic description HTML for each point in the plot
     private formatDescription(properties){
         let date = new Date(properties.time)
         let dateStr = date.toString().split('(')[0]
@@ -62,13 +67,12 @@ export class GeoParser {
         `
         return description;
     }
+
     toAmChart(data) {
-        
         let stack = []
         data.features.forEach((feature)=>{
             stack.push(this.getItemFromFeature(feature))
         })
-        
         return stack
     }
 

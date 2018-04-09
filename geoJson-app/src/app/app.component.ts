@@ -17,31 +17,26 @@ import { GeoJson, GeoParser } from '../modules/geo-json';
 export class AppComponent implements OnInit {
   private AmCharts = window['AmCharts']
   private chart: any
-  public startdate : string
-  public enddate : string
+  public startdate: string
+  public enddate: string
 
   constructor(private http: HttpClient, private geojson: GeoJson, private geoparser: GeoParser) {
-    this.startdate = "1991-06-01" 
+    //arbitrary default dates
+    this.startdate = "1991-06-01"
     this.enddate = "1991-06-30"
-    
-  }
 
+  }
   ngOnInit() {
     this.chart = this.makeChart()
   }
   plotQuakes() {
- 
-    this.geojson.getData(this.startdate, this.enddate).subscribe((data) => {
-      let newData = this.geoparser.toAmChart(data)
-      this.chart.dataProvider.images = newData;
-      this.chart.validateData();
-    })
+    this.geojson.getData(this.startdate, this.enddate)
+      .subscribe((data) => {
+        let newData = this.geoparser.toAmChart(data)
+        this.chart.dataProvider.images = newData;
+        this.chart.validateData();
+      })
   }
-
-  openTab(){
-    console.log('a')
-  }
-
 
   makeChart() {
     return this.AmCharts.makeChart("phMap", chartobj);

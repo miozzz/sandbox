@@ -81,7 +81,7 @@
     }
   }
 
-  @media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
     :host{
         display: grid;
         grid-template-rows: 30mm auto;
