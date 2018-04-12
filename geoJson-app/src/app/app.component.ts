@@ -32,13 +32,13 @@ export class AppComponent implements OnInit {
     this.chart = this.makeChart()
   }
   plotQuakes() {
-    this.logMessage = "Fetching earthquake data."
+    this.logMessage = "Fetching earthquake data..."
     this.geojson.getData(this.startdate, this.enddate)
       .subscribe((data) => {
-        this.logMessage = "Parsing earthquake paramaters."
+        this.logMessage = "Parsing earthquake paramaters..."
         let newData = this.geoparser.toAmChart(data)
         this.chart.dataProvider.images = newData;
-        this.logMessage = "Plotting earthquake data."
+        this.logMessage = "Plotting earthquake data..."
         this.chart.validateData();
         this.logMessage = ""
       })
