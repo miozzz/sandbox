@@ -10,6 +10,8 @@ body{
 div.infoBox{
     color:#181818;
     text-shadow: 0 0 white;
+    background: #ffffffaa;
+    padding: 1mm;
 }
 
 div.infoBox > *{
