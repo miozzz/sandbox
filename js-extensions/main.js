@@ -30,7 +30,7 @@ Object.compare = function (obj1, obj2) {
     if(!ks2.length && !Object.keys(obj1).length) return true
     let stack = []
     ks2.forEach((k) => {
-        stack.push(Object.compareObjects(obj1[k], obj2[k]))
+        stack.push(Object.compare(obj1[k], obj2[k]))
     })
     return stack.every((a)=>{return a})
 }
