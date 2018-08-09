@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Sample Workers</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <script id="orc" src="orc.js"></script>
+
+</head>
+
+<body>
+  <label>Array</label>
+  <pre contenteditable="true">
+    Apple,Banana,Calamansi
+  </pre>
+  <button class="bttn1">Join</button>
+  </br>
+  <script>
+    let orc1 = Orc.create('scripts/sampleWorker.js')
+    document.getElementsByClassName('bttn1')[0].addEventListener('click',
+      () => {
+        let arr = document.getElementsByTagName('pre')[0].textContent.split(',')
+        orc1.post('joinArray', arr)
+      })
+  </script>
+  <label>Result</label>
+  </br>
+  <span class="spn1"></span>
+  <script>
+    orc1.on('joinArray', (data) => {
+      document.getElementsByClassName('spn1')[0].textContent = data
+    })
+  </script>
+  <button class="bttn2">Add</button>
+  </br>
+  <script>
+    document.getElementsByClassName('bttn2')[0].addEventListener('click',
+      () => {
+        let arr = document.getElementsByTagName('pre')[0].textContent.split(',')
+        orc1.post('addArray', arr).then((data)=>{
+          document.getElementsByClassName('spn2')[0].textContent = data
+        })
+      })
+  </script>
+  <label>Result 2</label>
+  </br>
+  <span class="spn2"></span></br>
+  <span class="spn3"></span>
+  <script>
+    orc1.on('addArray', (data) => {
+      document.getElementsByClassName('spn3')[0].textContent = data
+    })
+  </script>
+</body>
