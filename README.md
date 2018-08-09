@@ -1,8 +1,8 @@
-# sandbox
+# Sandbox
 playground for learning different coding things
 
-## flask
-Hy and Flask related learnings
+## geoJson-app
+a simple Earthquake plotting application using angular and typescript
 
-## Node-bend
-learning basics of nodejs by creating servers
+## ranDOM-classes
+some useful javascript classes for the clientside
